@@ -1,0 +1,67 @@
+@import '../../../../assets/style/globals';
+@import "../epublic";
+
+$nav-black: #3f3f3f;
+
+.nav-wrapper {
+  height: $nav-height;
+  background-color: $nav-black;
+  color: white;
+  opacity: 0.95;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  .menu-toggle-button {
+    width: 100px;
+    transition: 150ms linear all;
+    height: $nav-height;
+    margin: 0 !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+
+    &.open {
+      background-color: #D0D1D1;
+
+    }
+
+    .inner {
+
+      i {
+        margin-right: 5px;
+      }
+
+      img.logo {
+        display: block;
+        height: 32px;
+      }
+
+      .menu-icon {
+        font-size: 18px;
+        position: relative;
+        top: 3px;
+      }
+
+    }
+
+    &.open {
+      width: $menu-width;
+      //   background-color: $almost-white;
+
+      .menu-icon {
+        color: $almost-black;
+      }
+
+    }
+
+  }
+
+  .user-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 0 10px
+  }
+
+}

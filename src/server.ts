@@ -16,9 +16,9 @@ import {
   NODE_HTTP_PROVIDERS,
   ExpressEngineConfig
 } from 'angular2-universal';
+import { EpublicContainer } from './app/core/components/epublic.container';
 
 // Application
-import {App} from './app/app.component';
 
 const app = express();
 const ROOT = path.join(path.resolve(__dirname, '..'));
@@ -38,7 +38,7 @@ function ngApp(req, res) {
   let url = req.originalUrl || '/';
 
   let config: ExpressEngineConfig = {
-    directives: [ App ],
+    directives: [ EpublicContainer ],
     platformProviders: [
       provide(ORIGIN_URL, {useValue: 'http://localhost:3000'}),
       provide(BASE_URL, {useValue: baseUrl}),

@@ -1,0 +1,26 @@
+@import '../../../assets/style/globals';
+
+$menu-width: 225px;
+$nav-height: 50px;
+$nav-padding: 20px;
+
+html, body {
+  background-color: $bg-white;
+  font-family: 'Raleway';
+  font-size: 20px;;
+  font-weight: 300;
+  color: $almost-black;
+}
+
+.nav-filler {
+  margin-top: $nav-height + $nav-padding;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.nav-wrapper {
+  position: fixed;
+
+}

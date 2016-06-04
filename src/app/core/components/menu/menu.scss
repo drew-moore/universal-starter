@@ -1,0 +1,36 @@
+@import '../../../../assets/style/globals';
+@import "../epublic";
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  max-width: 0;
+  background-color:#dedede;
+  border-right:1px solid rgba(255,255,255,0.25);
+  padding: 0;
+  margin-top: #{0 - $nav-padding};
+  transition: 150ms linear all;
+
+  * {
+    //margin-left: -150px;
+  }
+
+  &.open {
+    min-width: $menu-width;
+    max-width: $menu-width;
+    transition: 250ms ease-out all;
+
+    * {
+     // margin-left: 0;
+      padding: 5px;
+    }
+
+  }
+}
+
+.menu-item {
+  cursor: pointer;
+  font-family: 'Lato';
+  text-align: center;
+}
