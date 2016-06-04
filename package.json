@@ -16,7 +16,8 @@
     "server": "nodemon dist/server/bundle.js",
     "start": "npm run server",
     "predebug": "npm run build",
-    "debug": "node --debug-brk dist/server/bundle.js"
+    "debug": "node --debug-brk dist/server/bundle.js",
+    "clean-compiled": "rimraf src/**/*.js.map src/**/*.js"
   },
   "dependencies": {
     "@angular/common": "2.0.0-rc.1",
@@ -57,8 +58,12 @@
   },
   "devDependencies": {
     "awesome-typescript-loader": "^0.18.0",
+    "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.8.5",
+    "html-loader": "^0.4.3",
     "jasmine-core": "^2.4.1",
+    "html-webpack-plugin": "^2.15.0",
     "karma": "^0.13.22",
     "karma-chrome-launcher": "^1.0.1",
     "karma-jasmine": "^1.0.2",

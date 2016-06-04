@@ -7,4 +7,11 @@ npm-debug.log
 
 /dist/
 
-.idea
+/.idea/
+/.logs/
+
+#compiled
+src/**/*.js
+src/**/*.js.map
+tools/**/*.js
+tools/**/*.js.map

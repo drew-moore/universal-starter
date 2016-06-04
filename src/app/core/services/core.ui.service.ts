@@ -8,7 +8,7 @@ import { CoreActions } from '../actions/core.actions';
 import { CoreUIState } from '../models/core.ui.state';
 
 @Injectable()
-export class AppBaseState {
+export class CoreStateService {
   public menuOpen$: Observable<boolean>;
 
   private _menuToggles$: Subject<any> = BehaviorSubject.create();
@@ -17,12 +17,14 @@ export class AppBaseState {
 
     const state$: Observable<CoreUIState> = _store.select<CoreUIState>( 'core_ui' );
 
-    this.menuOpen$ = state$.map( state => state.menuOpen );
+    this.menuOpen$ = state$.map( state => {
+      return state.menuOpen;
+    } );
 
     this._menuToggles$.subscribe( () => this._store.dispatch( actions.menuToggled() ) )
 
   }
-  
+
   public toggleMenu() {
     this._menuToggles$.next( null );
   }

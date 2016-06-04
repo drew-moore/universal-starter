@@ -1,21 +1,18 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import {Store} from '@ngrx/store';
 import { NavComponent } from './nav/nav.component';
 import { MenuComponent } from './menu/menu.component';
-
-
-import '../../../assets/style/material-layout.css';
-import { Store } from '@ngrx/store';
 import { mutable } from '../../common/mutability';
-import { EpublicStore } from '../epublic.state.shape';
-import { CoreUIState } from '../models/core.ui.state';
+import { EpublicStore, EpublicState } from '../epublic.state.shape';
+import { CoreStateService } from '../services/core.ui.service';
 
 
 @Component( {
-  selector  : 'epublic',
-  directives: [ NavComponent, MenuComponent ],
-  styles    : [ require( './epublic.scss' ) ],
+  selector     : 'epublic',
+  directives   : [ NavComponent, MenuComponent ],
+  styles       : [ require( './epublic.scss' ) ],
   encapsulation: ViewEncapsulation.None,
-  template  : `
+  template     : `
     <md-content layout="column" class="app-wrapper" layout-fill>
        <epub-nav [menuOpen]="state.menuOpen$ | async" (toggleMenu)="state.toggleMenu()" class="nav"></epub-nav>
         <div layout="row" layout-align="start stretch" class="nav-filler" flex>
@@ -27,12 +24,12 @@ import { CoreUIState } from '../models/core.ui.state';
 } )
 export class EpublicContainer {
 
-  constructor( private state: CoreUIState, private _store: EpublicStore ) {
+  constructor(private state: CoreStateService, private _store: Store<EpublicState>) {
 
-    this._store.subscribe(x => {
+    this._store.subscribe( x => {
       console.log( "EPUB STATE:" );
-      console.log( mutable(x) );
-    })
+      console.log( mutable( x ) );
+    } )
 
   }
 
